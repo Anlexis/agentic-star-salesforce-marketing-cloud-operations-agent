@@ -1,0 +1,14 @@
+# Runtime parameters — loaded by AgentRegistry, passed as Graph(config=...).
+# Separate from config/agent.yaml (the static manifest).
+
+# Outer backbone retry budget and per-invoke timeout.
+max_retry: 3
+timeout_s: 30
+
+# Salesforce Marketing Cloud REST connector settings. Forwarded to the inner
+# workflow graph by SalesforceWorkflowGraphNode._parent_config() under
+# config["configurable"]; CallSalesforceApiNode builds its client from these.
+# A real tenant base URL carries the tenant subdomain
+# (https://<subdomain>.rest.marketingcloudapis.com).
+salesforce:
+  base_url: "https://mc.rest.marketingcloudapis.com"
